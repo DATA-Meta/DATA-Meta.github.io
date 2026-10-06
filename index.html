@@ -37,7 +37,14 @@ h2{font-size:24px;margin-bottom:20px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
 .stat b{display:block;font-size:22px}.stat span{font-size:13px;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cover{aspect-ratio:16/9;background:#fff;border-bottom:1px solid var(--line);overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;cursor:zoom-in}
+.cover.dark{background:#0d1117}
+.cover.gen{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--a),var(--b))}
+.cover.gen span{color:#fff;font-size:30px;font-weight:700;letter-spacing:.02em;opacity:.95}
 .card h3{font-size:17px}.card p{font-size:14px;color:var(--muted);flex:1}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:12px;background:var(--chip);padding:3px 8px;border-radius:999px;color:var(--muted)}
@@ -53,10 +60,13 @@ h2{font-size:24px;margin-bottom:20px}
 ul.plain{list-style:none;display:flex;flex-direction:column;gap:10px}
 ul.plain li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 ul.plain li span{color:var(--muted)}
-#repos .card{padding:16px}#repos .meta{font-size:12px;color:var(--muted)}
+#repos .card{color:inherit;text-decoration:none}#repos .card h3{color:var(--accent);font-size:16px}#repos .cover{aspect-ratio:2/1}#repos .cover img{cursor:pointer}#repos .cover.gen span{font-size:20px;text-align:center;padding:0 16px;text-transform:capitalize}#repos .meta{font-size:12px;color:var(--muted)}
 .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:20px}
-.shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in}
+.shot{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.shot img{cursor:zoom-in}
 .shot img{width:100%;aspect-ratio:16/10;object-fit:contain;background:#0d1117;display:block;border-bottom:1px solid var(--line)}
+.shot.cert img{background:#fff;aspect-ratio:1.414;object-fit:contain;padding:6px}
+.shots.certs{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .shot figcaption{font-size:13px;color:var(--muted);padding:10px 12px}
 .shot figcaption b{color:var(--text);display:block;font-size:14px}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:20px;z-index:50;cursor:zoom-out}
@@ -99,38 +109,46 @@ footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 <section id="projects">
   <h2>Featured projects</h2>
   <div class="grid">
-    <div class="card"><span class="badge">LLM · Production</span><h3>Enterprise-Grade Agentic RAG App</h3>
+    <div class="card"><div class="cover dark"><img loading="lazy" data-zoom src="images/rag-architecture.jpg" alt="RAG app architecture: FastAPI, LangGraph orchestrator, guardrails, retrieval with Qdrant, LLM generation, observability" style="object-fit:contain;object-position:center"></div><div class="body"><span class="badge">LLM · Production</span><h3>Enterprise-Grade Agentic RAG App</h3>
       <p>Modular RAG system from ingestion to guardrailed, evaluated answers. Jina embeddings, Qdrant Cloud, GPT-OSS-120B via Portkey/Groq, NeMo Guardrails, Langfuse tracing and DeepEval. All evaluation metrics passing; deployed on Cloud Run.</p>
       <div class="tags"><span class="tag">FastAPI</span><span class="tag">Qdrant</span><span class="tag">Guardrails</span><span class="tag">Docker</span></div>
-      <div class="links"><a href="https://github.com/DATA-Meta/enterprise-grade-rag-app" target="_blank" rel="noopener">Code →</a><a href="#rag">Screenshots →</a></div></div>
-    <div class="card"><span class="badge">Machine Learning</span><h3>Netflix Customer Churn Prediction</h3>
+      <div class="links"><a href="https://github.com/DATA-Meta/enterprise-grade-rag-app" target="_blank" rel="noopener">Code →</a><a href="#rag">Screenshots →</a></div></div></div>
+    <div class="card"><div class="cover dark"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/ML-_arden_university/HEAD/github_banner.png" alt="India Domestic Flight Price Prediction banner" style="object-fit:contain"></div><div class="body"><span class="badge">Machine Learning</span><h3>India Domestic Flight Price Prediction</h3>
+      <p>300K flights across 6 airlines. Cleaning, EDA and hypothesis testing (t-test, ANOVA, chi-square), then 5 models compared. Random Forest won with R² 0.978, RMSE ₹3,378 and MAPE 10.6%. Travel class alone drives 83% of the price.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Statistics</span><span class="tag">seaborn</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/ML-_arden_university" target="_blank" rel="noopener">Code →</a></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/churn-prediction/HEAD/reports/plots/feature_importance.png" alt="Netflix Customer Churn Prediction"></div><div class="body"><span class="badge">Machine Learning</span><h3>Netflix Customer Churn Prediction</h3>
       <p>Predicts which of 25,000 subscribers will cancel, based on watch time, subscription type, genre and login activity, with a custom churn definition.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">EDA</span></div>
-      <div class="links"><a href="https://github.com/DATA-Meta/churn-prediction" target="_blank" rel="noopener">Code →</a></div></div>
-    <div class="card"><span class="badge">Deep Learning</span><h3>CNN for MNIST Classification</h3>
+      <div class="links"><a href="https://github.com/DATA-Meta/churn-prediction" target="_blank" rel="noopener">Code →</a></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/CNN_MNIST_Classification/HEAD/results/sample_predictions.png" alt="CNN for MNIST Classification"></div><div class="body"><span class="badge">Deep Learning</span><h3>CNN for MNIST Classification</h3>
       <p>Modular, production-style CNN pipeline (training, evaluation, visualisation, saved model) showing how CNNs beat classical ML on image data. Includes an academic report.</p>
       <div class="tags"><span class="tag">TensorFlow/Keras</span><span class="tag">CNN</span></div>
-      <div class="links"><a href="https://github.com/DATA-Meta/CNN_MNIST_Classification" target="_blank" rel="noopener">Code →</a></div></div>
-    <div class="card"><span class="badge">Big Data</span><h3>PySpark Cloud Pipeline</h3>
+      <div class="links"><a href="https://github.com/DATA-Meta/CNN_MNIST_Classification" target="_blank" rel="noopener">Code →</a></div></div></div>
+    <div class="card"><div class="cover gen" style="--a:#f97316;--b:#7c2d12"><span>Spark</span></div><div class="body"><span class="badge">Big Data</span><h3>PySpark Cloud Pipeline</h3>
       <p>Advanced analytics and machine learning on a cloud data pipeline with PySpark, built for the Big Data &amp; Cloud Computing MSc module.</p>
       <div class="tags"><span class="tag">PySpark</span><span class="tag">Cloud</span><span class="tag">MLlib</span></div>
-      <div class="links"><a href="https://github.com/DATA-Meta/pyspark-cloud-pipeline" target="_blank" rel="noopener">Code →</a></div></div>
-    <div class="card"><span class="badge">Power BI</span><h3>PwC Switzerland: Power BI Dashboards</h3>
+      <div class="links"><a href="https://github.com/DATA-Meta/pyspark-cloud-pipeline" target="_blank" rel="noopener">Code →</a></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="certs/pwc-power-bi.jpg" alt="PwC Switzerland: Power BI Dashboards"></div><div class="body"><span class="badge">Power BI</span><h3>PwC Switzerland: Power BI Dashboards</h3>
       <p>Job simulation: call-centre trends, customer retention and diversity &amp; inclusion dashboards for a PwC client scenario.</p>
       <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPI design</span></div>
-      <div class="links"><span class="tag">Dashboards coming soon</span></div></div>
-    <div class="card"><span class="badge">Consulting</span><h3>KPMG: Data Analytics Consulting</h3>
+      <div class="links"><span class="tag">Dashboards coming soon</span></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="certs/kpmg-data-analytics.jpg" alt="KPMG: Data Analytics Consulting"></div><div class="body"><span class="badge">Consulting</span><h3>KPMG: Data Analytics Consulting</h3>
       <p>Virtual internship: data quality assessment, customer-segmentation insights and presentation of findings for a client.</p>
       <div class="tags"><span class="tag">Data Quality</span><span class="tag">Excel</span><span class="tag">Insights</span></div>
-      <div class="links"><span class="tag">Project files coming soon</span></div></div>
-    <div class="card"><span class="badge">Visualisation</span><h3>Tableau Public Dashboards</h3>
-      <p>Interactive dashboards built in Tableau, published on my Tableau Public profile.</p>
+      <div class="links"><span class="tag">Project files coming soon</span></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/Data_visualisation_ardenUniversity/HEAD/figures/dashboard.png" alt="Retail profitability dashboard"></div><div class="body"><span class="badge">Data Visualisation</span><h3>Retail Profitability Dashboard</h3>
+      <p>End-to-end visual analytics on retail sales data: an interactive HTML dashboard plus 12+ charts (heatmaps, trends, city and product profitability) turned into business insights.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Plotly</span><span class="tag">Seaborn</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/Data_visualisation_ardenUniversity" target="_blank" rel="noopener">Code →</a></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" data-zoom src="images/tableau-olympics.jpg" alt="Tableau dashboard: History of the Summer Olympics"></div><div class="body"><span class="badge">Visualisation</span><h3>Tableau Public Dashboards</h3>
+      <p>Interactive Tableau dashboards, including a History of the Summer Olympics dashboard (medals by country, sport and gender), published on Tableau Public.</p>
       <div class="tags"><span class="tag">Tableau</span></div>
-      <div class="links"><a href="https://public.tableau.com/app/profile/muhammad.usman.khan1593" target="_blank" rel="noopener">View dashboards →</a></div></div>
-    <div class="card"><span class="badge">SQL</span><h3>COVID-19 Data Exploration</h3>
+      <div class="links"><a href="https://public.tableau.com/app/profile/muhammad.usman.khan1593" target="_blank" rel="noopener">View dashboards →</a></div></div></div>
+    <div class="card"><div class="cover"><img loading="lazy" src="images/covid-sql.jpg" alt="COVID-19 data exploration" style="object-position:center"></div><div class="body"><span class="badge">SQL</span><h3>COVID-19 Data Exploration</h3>
       <p>Data cleaning and exploratory analysis of global COVID-19 data in SQL: joins, CTEs, window functions and views.</p>
       <div class="tags"><span class="tag">SQL</span></div>
-      <div class="links"><a href="https://github.com/DATA-Meta/Portfolio-projectsSQL" target="_blank" rel="noopener">Code →</a></div></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/Portfolio-projectsSQL" target="_blank" rel="noopener">Code →</a></div></div></div>
   </div>
 </section>
 
@@ -138,15 +156,15 @@ footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <h2>Spotlight: Enterprise-Grade Agentic RAG App</h2>
   <p class="lead">An agentic RAG system built end to end: ingestion, vector search on Qdrant, re-ranking, a planner that decides when to retrieve, guardrails, an LLM gateway, tracing and automated evaluation. It's deployed with Docker on Google Cloud Run. <a href="https://github.com/DATA-Meta/enterprise-grade-rag-app" target="_blank" rel="noopener">View the code →</a></p>
   <div class="shots">
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-03-rag-answer.png" alt="Grounded RAG answer"><figcaption><b>Grounded RAG answer</b>Answer from retrieved documents, with the agent’s reasoning steps shown</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-01-greeting-reasoning.png" alt="Planner skips retrieval"><figcaption><b>Planner skips retrieval</b>A casual greeting is routed straight to the LLM, with no wasted vector search</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-02-out-of-scope-refusal.png" alt="Out-of-scope refusal"><figcaption><b>Out-of-scope refusal</b>Guardrails decline questions outside the knowledge base</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep04-reranker-scores.png" alt="Re-ranking"><figcaption><b>Re-ranking</b>Relevance scores after re-ranking retrieved chunks</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep05-guardrails-test.png" alt="NeMo Guardrails tests"><figcaption><b>NeMo Guardrails tests</b>Input/output rails blocking unsafe prompts</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep08a-langfuse-traces.png" alt="Langfuse tracing"><figcaption><b>Langfuse tracing</b>End-to-end traces of each request through the pipeline</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep08b-deepeval-results.png" alt="DeepEval evaluation"><figcaption><b>DeepEval evaluation</b>All evaluation metrics passing</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep06-portkey-logs.png" alt="Portkey LLM gateway"><figcaption><b>Portkey LLM gateway</b>Request logs for GPT-OSS-120B via Groq</figcaption></figure>
-    <figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep09-cloud-run-deploy-success.png" alt="Deployed on Cloud Run"><figcaption><b>Deployed on Cloud Run</b>Dockerised app running on Google Cloud Run</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-03-rag-answer.png" alt="Grounded RAG answer"><figcaption><b>Grounded RAG answer</b>Answer from retrieved documents, with the agent’s reasoning steps shown</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-01-greeting-reasoning.png" alt="Planner skips retrieval"><figcaption><b>Planner skips retrieval</b>A casual greeting is routed straight to the LLM, with no wasted vector search</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/gui-02-out-of-scope-refusal.png" alt="Out-of-scope refusal"><figcaption><b>Out-of-scope refusal</b>Guardrails decline questions outside the knowledge base</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep04-reranker-scores.png" alt="Re-ranking"><figcaption><b>Re-ranking</b>Relevance scores after re-ranking retrieved chunks</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep05-guardrails-test.png" alt="NeMo Guardrails tests"><figcaption><b>NeMo Guardrails tests</b>Input/output rails blocking unsafe prompts</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep08a-langfuse-traces.png" alt="Langfuse tracing"><figcaption><b>Langfuse tracing</b>End-to-end traces of each request through the pipeline</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep08b-deepeval-results.png" alt="DeepEval evaluation"><figcaption><b>DeepEval evaluation</b>All evaluation metrics passing</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep06-portkey-logs.png" alt="Portkey LLM gateway"><figcaption><b>Portkey LLM gateway</b>Request logs for GPT-OSS-120B via Groq</figcaption></figure>
+    <figure class="shot"><img loading="lazy" data-zoom src="https://raw.githubusercontent.com/DATA-Meta/enterprise-grade-rag-app/main/docs/images/ep09-cloud-run-deploy-success.png" alt="Deployed on Cloud Run"><figcaption><b>Deployed on Cloud Run</b>Dockerised app running on Google Cloud Run</figcaption></figure>
   </div>
 </section>
 
@@ -176,13 +194,16 @@ footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 
 <section id="certs">
   <h2>Certificates</h2>
-  <ul class="plain">
-    <li>KPMG AU: Data Analytics Consulting Virtual Internship <span>Forage · Oct 2023</span></li>
-    <li>PwC Switzerland: Power BI Job Simulation <span>Forage · Sep 2023</span></li>
-    <li>Introduction to Power BI · Introduction to DAX in Power BI <span>DataCamp · Oct 2023</span></li>
-    <li>Introduction to Python · Introduction to SQL <span>DataCamp · Oct 2023</span></li>
-    <li><div><a href="https://academy.claude.com/verify/e8e679caf11efec32801e39a4127b854" target="_blank" rel="noopener">Claude 101</a> · <a href="https://academy.claude.com/verify/d5b232e1bb8b69fb0c54986f4dabea4c" target="_blank" rel="noopener">Introduction to Claude Cowork</a></div> <span>Anthropic Academy · 2026</span></li>
-  </ul>
+  <div class="shots certs">
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/kpmg-data-analytics.jpg" alt="KPMG · Data Analytics Consulting certificate"><figcaption><b>KPMG · Data Analytics Consulting</b>Forage · Oct 2023</figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/pwc-power-bi.jpg" alt="PwC Switzerland · Power BI certificate"><figcaption><b>PwC Switzerland · Power BI</b>Forage · Sep 2023</figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/anthropic-claude-101.jpg" alt="Claude 101 certificate"><figcaption><b>Claude 101</b>Anthropic Academy · May 2026 · <a href="https://academy.claude.com/verify/e8e679caf11efec32801e39a4127b854" target="_blank" rel="noopener">Verify</a></figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/anthropic-claude-cowork.jpg" alt="Introduction to Claude Cowork certificate"><figcaption><b>Introduction to Claude Cowork</b>Anthropic Academy · Aug 2026 · <a href="https://academy.claude.com/verify/d5b232e1bb8b69fb0c54986f4dabea4c" target="_blank" rel="noopener">Verify</a></figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/datacamp-power-bi.jpg" alt="Introduction to Power BI certificate"><figcaption><b>Introduction to Power BI</b>DataCamp · Oct 2023</figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/datacamp-dax.jpg" alt="Introduction to DAX in Power BI certificate"><figcaption><b>Introduction to DAX in Power BI</b>DataCamp · Oct 2023</figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/datacamp-python.jpg" alt="Introduction to Python certificate"><figcaption><b>Introduction to Python</b>DataCamp · Oct 2023</figcaption></figure>
+    <figure class="shot cert"><img loading="lazy" data-zoom src="certs/datacamp-sql.jpg" alt="Introduction to SQL certificate"><figcaption><b>Introduction to SQL</b>DataCamp · Oct 2023</figcaption></figure>
+  </div>
 </section>
 
 <section id="github">
@@ -196,18 +217,40 @@ footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 <footer>© <span id="yr"></span> Muhammad Usman Khan · Berlin · <a href="https://www.linkedin.com/in/muhammad-usman-khan-data-analyst/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/DATA-Meta" target="_blank" rel="noopener">GitHub</a></footer>
 
 <script>
-const lb=document.getElementById('lb');document.querySelectorAll('.shot img').forEach(i=>i.parentElement.onclick=()=>{lb.firstElementChild.src=i.src;lb.firstElementChild.alt=i.alt;lb.classList.add('on')});lb.onclick=()=>lb.classList.remove('on');document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+const lb=document.getElementById('lb');document.querySelectorAll('img[data-zoom]').forEach(i=>i.onclick=e=>{e.preventDefault();lb.firstElementChild.src=i.src;lb.firstElementChild.alt=i.alt;lb.classList.add('on')});lb.onclick=()=>lb.classList.remove('on');document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 document.getElementById('yr').textContent=new Date().getFullYear();
 const HIDE=new Set(['DATA-Meta','DATA-Meta.github.io','dataholick2.github.io','Data_Holick.github.io','practiceGit','newbee','CavemanClaude','https-github.com-DATA-Meta-Python_for_DataScience']);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RAW='https://raw.githubusercontent.com/DATA-Meta/';
+const COVERS={
+ 'enterprise-grade-rag-app':'enterprise-grade-rag-app/main/docs/images/gui-03-rag-answer.png',
+ 'churn-prediction':'churn-prediction/HEAD/reports/plots/roc_curve.png',
+ 'CNN_MNIST_Classification':'CNN_MNIST_Classification/HEAD/results/sample_predictions.png',
+ 'Data_visualisation_ardenUniversity':'Data_visualisation_ardenUniversity/HEAD/banner_ubereats.png',
+ 'Data_visualisation_Arden':'Data_visualisation_Arden/HEAD/data_visulaisation_practice_extended/fig1_city_profitability.png',
+ 'ML-_arden_university':'ML-_arden_university/HEAD/github_banner.png',
+ 'CavemanClaude':'CavemanClaude/HEAD/caveman.png.png',
+ 'MS_Data_Science_Arden_university':'MS_Data_Science_Arden_university/HEAD/Mathematics%20for%20data%20science/Arden_assingments/Programming_for_DS/After_Outlier_Treatment_Boxplots.png'
+};
+const GRAD={'Python':['#2563eb','#0f172a'],'Jupyter Notebook':['#f97316','#7c2d12'],'HTML':['#e11d48','#4c0519'],'JavaScript':['#ca8a04','#422006']};
+async function readmeImg(r){
+  try{const t=await fetch(`${RAW}${r.name}/HEAD/README.md`).then(x=>x.ok?x.text():'');
+    const m=[...t.matchAll(/!\[[^\]]*\]\(([^)\s]+)|<img[^>]+src=["']([^"']+)/g)].map(x=>x[1]||x[2]).find(u=>!/shields\.io|badge|img\.icons|skillicons|github-readme-stats|komarev/i.test(u));
+    if(!m)return null; return /^https?:/.test(m)?m:`${RAW}${r.name}/HEAD/${m.replace(/^\.?\//,'')}`;}catch(e){return null}
+}
 fetch('https://api.github.com/users/DATA-Meta/repos?per_page=100&sort=pushed')
  .then(r=>{if(!r.ok)throw 0;return r.json()})
- .then(rs=>{
+ .then(async rs=>{
    const list=rs.filter(r=>!r.fork&&!r.archived&&!HIDE.has(r.name)).slice(0,9);
-   document.getElementById('repos').innerHTML=list.map(r=>`
-    <div class="card"><h3><a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.name.replace(/[-_]/g,' '))}</a></h3>
-    <p>${esc(r.description||'')}</p>
-    <div class="meta">${r.language?esc(r.language)+' · ':''}updated ${new Date(r.pushed_at).toLocaleDateString('en-GB',{month:'short',year:'numeric'})}</div></div>`).join('');
+   const imgs=await Promise.all(list.map(r=>COVERS[r.name]?RAW+COVERS[r.name]:readmeImg(r)));
+   document.getElementById('repos').innerHTML=list.map((r,i)=>{
+     const g=GRAD[r.language]||['#0d9488','#134e4a'];
+     const label=r.name.replace(/[-_]+/g,' ').replace(/\b(arden|university|ardenUniversity)\b/gi,'').trim();
+     const cover=imgs[i]?`<div class="cover"><img src="${esc(imgs[i])}" alt="" onerror="this.parentElement.outerHTML='<div class=&quot;cover gen&quot; style=&quot;--a:${g[0]};--b:${g[1]}&quot;><span>${esc(label)}</span></div>'"></div>`
+       :`<div class="cover gen" style="--a:${g[0]};--b:${g[1]}"><span>${esc(label)}</span></div>`;
+     return `<a class="card repo" href="${esc(r.html_url)}" target="_blank" rel="noopener">${cover}<div class="body"><h3>${esc(r.name.replace(/[-_]+/g,' ').trim())}</h3>
+      <p>${esc(r.description||'')}</p>
+      <div class="meta">${r.language?esc(r.language)+' · ':''}updated ${new Date(r.pushed_at).toLocaleDateString('en-GB',{month:'short',year:'numeric'})}</div></div></a>`}).join('');
  })
  .catch(()=>{document.getElementById('repos').innerHTML='<p class="lead">See all repositories on <a href="https://github.com/DATA-Meta">GitHub</a>.</p>'});
 </script>
