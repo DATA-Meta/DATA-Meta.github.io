@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Usman Khan · Data Science Portfolio</title>
+<meta name="description" content="Muhammad Usman Khan: data analyst and MSc Data Science student in Berlin. Projects in ML, RAG/LLM apps, Power BI, Tableau, SQL and Python.">
+<link rel="icon" href="https://avatars.githubusercontent.com/DATA-Meta?s=64">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf9;--surface:#fff;--text:#1c1917;--muted:#57534e;--line:#e7e5e4;--accent:#2563eb;--accent-soft:#eff6ff;--chip:#f5f5f4}
+@media (prefers-color-scheme:dark){:root{--bg:#0c0a09;--surface:#1c1917;--text:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#60a5fa;--accent-soft:#172554;--chip:#292524}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav .brand{font-weight:700;color:var(--text)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:14px}nav ul a{color:var(--muted)}
+@media(max-width:640px){nav ul{display:none}}
+header{padding:72px 0 48px}
+.hero{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.hero img{width:120px;height:120px;border-radius:50%;border:3px solid var(--line)}
+.hero h1{font-size:clamp(28px,5vw,40px);line-height:1.15}
+.hero p.role{font-size:18px;color:var(--muted);margin:8px 0 16px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:14px;font-weight:500}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{text-decoration:none;opacity:.9}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;margin-bottom:20px}
+.lead{color:var(--muted);max-width:720px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat b{display:block;font-size:22px}.stat span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:17px}.card p{font-size:14px;color:var(--muted);flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;background:var(--chip);padding:3px 8px;border-radius:999px;color:var(--muted)}
+.badge{font-size:11px;font-weight:600;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:999px;align-self:flex-start}
+.card .links{font-size:14px;display:flex;gap:14px}
+.timeline{display:flex;flex-direction:column;gap:18px}
+.job{display:grid;grid-template-columns:130px 1fr;gap:16px}
+.job .when{color:var(--muted);font-size:14px}
+.job h3{font-size:16px}.job p{color:var(--muted);font-size:14px}
+@media(max-width:560px){.job{grid-template-columns:1fr;gap:2px}}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skills h3{font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px}
+ul.plain{list-style:none;display:flex;flex-direction:column;gap:10px}
+ul.plain li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+ul.plain li span{color:var(--muted)}
+#repos .card{padding:16px}#repos .meta{font-size:12px;color:var(--muted)}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#">MU Khan</a>
+  <ul><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#certs">Certificates</a></li><li><a href="#github">Latest on GitHub</a></li></ul>
+</div></nav>
+
+<header><div class="wrap hero">
+  <img src="https://avatars.githubusercontent.com/DATA-Meta?s=240" alt="Muhammad Usman Khan">
+  <div>
+    <h1>Muhammad Usman Khan</h1>
+    <p class="role">Data Analyst · MSc Data Science student · Berlin, Germany</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="https://github.com/DATA-Meta" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/muhammad-usman-khan-data-analyst/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://public.tableau.com/app/profile/muhammad.usman.khan1593" target="_blank" rel="noopener">Tableau Public</a>
+    </div>
+  </div>
+</div></header>
+
+<main class="wrap">
+<section id="about">
+  <h2>About</h2>
+  <p class="lead">I've spent about 9 years in analytics across Pakistan, the UK and Germany, turning messy business data into dashboards, KPI frameworks and automation that people use. I now work as a Data Analyst &amp; Payroll Specialist at Third Eye HR in Berlin while completing an MSc in Data Science at Arden University. I hold an MBA with Distinction from Edinburgh Napier and a BEng in Electronics. I'm currently building ML and LLM/RAG systems end to end.</p>
+  <div class="stats">
+    <div class="stat"><b>$1M</b><span>annual cost savings (Turnotech)</span></div>
+    <div class="stat"><b>$2M</b><span>revenue supported by KPI framework (NETKOM)</span></div>
+    <div class="stat"><b>£10k</b><span>productivity saving with Power BI (MindStorm)</span></div>
+    <div class="stat"><b>75%</b><span>error reduction via Python automation</span></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Featured projects</h2>
+  <div class="grid">
+    <div class="card"><span class="badge">LLM · Production</span><h3>Enterprise-Grade Agentic RAG App</h3>
+      <p>Modular RAG system from ingestion to guardrailed, evaluated answers. Jina embeddings, Qdrant Cloud, GPT-OSS-120B via Portkey/Groq, NeMo Guardrails, Langfuse tracing and DeepEval. All evaluation metrics passing, Dockerised.</p>
+      <div class="tags"><span class="tag">FastAPI</span><span class="tag">Qdrant</span><span class="tag">Guardrails</span><span class="tag">Docker</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/enterprise-grade-rag-app" target="_blank" rel="noopener">Code →</a></div></div>
+    <div class="card"><span class="badge">Machine Learning</span><h3>Netflix Customer Churn Prediction</h3>
+      <p>Predicts which of 25,000 subscribers will cancel, based on watch time, subscription type, genre and login activity, with a custom churn definition.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">EDA</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/churn-prediction" target="_blank" rel="noopener">Code →</a></div></div>
+    <div class="card"><span class="badge">Deep Learning</span><h3>CNN for MNIST Classification</h3>
+      <p>Modular, production-style CNN pipeline (training, evaluation, visualisation, saved model) showing how CNNs beat classical ML on image data. Includes an academic report.</p>
+      <div class="tags"><span class="tag">TensorFlow/Keras</span><span class="tag">CNN</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/CNN_MNIST_Classification" target="_blank" rel="noopener">Code →</a></div></div>
+    <div class="card"><span class="badge">Big Data</span><h3>PySpark Cloud Pipeline</h3>
+      <p>Advanced analytics and machine learning on a cloud data pipeline with PySpark, built for the Big Data &amp; Cloud Computing MSc module.</p>
+      <div class="tags"><span class="tag">PySpark</span><span class="tag">Cloud</span><span class="tag">MLlib</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/pyspark-cloud-pipeline" target="_blank" rel="noopener">Code →</a></div></div>
+    <div class="card"><span class="badge">Power BI</span><h3>PwC Switzerland: Power BI Dashboards</h3>
+      <p>Job simulation: call-centre trends, customer retention and diversity &amp; inclusion dashboards for a PwC client scenario.</p>
+      <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">KPI design</span></div>
+      <div class="links"><span class="tag">Dashboards coming soon</span></div></div>
+    <div class="card"><span class="badge">Consulting</span><h3>KPMG: Data Analytics Consulting</h3>
+      <p>Virtual internship: data quality assessment, customer-segmentation insights and presentation of findings for a client.</p>
+      <div class="tags"><span class="tag">Data Quality</span><span class="tag">Excel</span><span class="tag">Insights</span></div>
+      <div class="links"><span class="tag">Project files coming soon</span></div></div>
+    <div class="card"><span class="badge">Visualisation</span><h3>Tableau Public Dashboards</h3>
+      <p>Interactive dashboards built in Tableau, published on my Tableau Public profile.</p>
+      <div class="tags"><span class="tag">Tableau</span></div>
+      <div class="links"><a href="https://public.tableau.com/app/profile/muhammad.usman.khan1593" target="_blank" rel="noopener">View dashboards →</a></div></div>
+    <div class="card"><span class="badge">SQL</span><h3>COVID-19 Data Exploration</h3>
+      <p>Data cleaning and exploratory analysis of global COVID-19 data in SQL: joins, CTEs, window functions and views.</p>
+      <div class="tags"><span class="tag">SQL</span></div>
+      <div class="links"><a href="https://github.com/DATA-Meta/Portfolio-projectsSQL" target="_blank" rel="noopener">Code →</a></div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience &amp; education</h2>
+  <div class="timeline">
+    <div class="job"><div class="when">2024 – now</div><div><h3>Data Analyst &amp; Payroll Specialist · Third Eye HR GmbH, Berlin</h3><p>Payroll analytics and reporting, HR data processing and automation.</p></div></div>
+    <div class="job"><div class="when">2022 – 2024</div><div><h3>MindStorm Services</h3><p>Built Power BI reporting that delivered a £10,000 productivity saving.</p></div></div>
+    <div class="job"><div class="when">2019 – 2020</div><div><h3>NETKOM</h3><p>Designed a KPI framework supporting $2M in revenue.</p></div></div>
+    <div class="job"><div class="when">2015 – 2018</div><div><h3>Turnotech</h3><p>Analytics that drove $1M in annual cost savings.</p></div></div>
+    <div class="job"><div class="when">2026 – 2028</div><div><h3>MSc Data Science · Arden University Berlin</h3><p>Machine learning, neural networks, big data &amp; cloud, data visualisation, mathematics for data science.</p></div></div>
+    <div class="job"><div class="when">MBA</div><div><h3>MBA (Distinction) · Edinburgh Napier University</h3></div></div>
+    <div class="job"><div class="when">2013</div><div><h3>BEng Electronics Engineering · COMSATS</h3></div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Analytics &amp; BI</h3><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">SQL</span></div></div>
+    <div><h3>Data Science &amp; ML</h3><div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">PySpark</span></div></div>
+    <div><h3>LLM / GenAI</h3><div class="tags"><span class="tag">RAG</span><span class="tag">Qdrant</span><span class="tag">Guardrails</span><span class="tag">Langfuse</span><span class="tag">DeepEval</span></div></div>
+    <div><h3>Engineering</h3><div class="tags"><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Flask</span></div></div>
+    <div><h3>Languages</h3><div class="tags"><span class="tag">English (fluent)</span><span class="tag">German (B1)</span></div></div>
+  </div>
+</section>
+
+<section id="certs">
+  <h2>Certificates</h2>
+  <ul class="plain">
+    <li>KPMG AU: Data Analytics Consulting Virtual Internship <span>Forage · Oct 2023</span></li>
+    <li>PwC Switzerland: Power BI Job Simulation <span>Forage · Sep 2023</span></li>
+    <li>Introduction to Power BI · Introduction to DAX in Power BI <span>DataCamp · Oct 2023</span></li>
+    <li>Introduction to Python · Introduction to SQL <span>DataCamp · Oct 2023</span></li>
+    <li><div><a href="https://academy.claude.com/verify/e8e679caf11efec32801e39a4127b854" target="_blank" rel="noopener">Claude 101</a> · <a href="https://academy.claude.com/verify/d5b232e1bb8b69fb0c54986f4dabea4c" target="_blank" rel="noopener">Introduction to Claude Cowork</a></div> <span>Anthropic Academy · 2026</span></li>
+  </ul>
+</section>
+
+<section id="github">
+  <h2>Latest on GitHub</h2>
+  <p class="lead" style="margin-bottom:20px">Pulled live from <a href="https://github.com/DATA-Meta" target="_blank" rel="noopener">github.com/DATA-Meta</a>, so new work shows up here automatically.</p>
+  <div class="grid" id="repos"><p class="lead">Loading repositories…</p></div>
+</section>
+</main>
+
+<footer>© <span id="yr"></span> Muhammad Usman Khan · Berlin · <a href="https://www.linkedin.com/in/muhammad-usman-khan-data-analyst/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/DATA-Meta" target="_blank" rel="noopener">GitHub</a></footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const HIDE=new Set(['DATA-Meta','DATA-Meta.github.io','dataholick2.github.io','Data_Holick.github.io','practiceGit','newbee','CavemanClaude','https-github.com-DATA-Meta-Python_for_DataScience']);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('https://api.github.com/users/DATA-Meta/repos?per_page=100&sort=pushed')
+ .then(r=>{if(!r.ok)throw 0;return r.json()})
+ .then(rs=>{
+   const list=rs.filter(r=>!r.fork&&!r.archived&&!HIDE.has(r.name)).slice(0,9);
+   document.getElementById('repos').innerHTML=list.map(r=>`
+    <div class="card"><h3><a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.name.replace(/[-_]/g,' '))}</a></h3>
+    <p>${esc(r.description||'')}</p>
+    <div class="meta">${r.language?esc(r.language)+' · ':''}updated ${new Date(r.pushed_at).toLocaleDateString('en-GB',{month:'short',year:'numeric'})}</div></div>`).join('');
+ })
+ .catch(()=>{document.getElementById('repos').innerHTML='<p class="lead">See all repositories on <a href="https://github.com/DATA-Meta">GitHub</a>.</p>'});
+</script>
+</body>
+</html>
